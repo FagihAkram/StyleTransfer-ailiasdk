@@ -1,12 +1,12 @@
+from io import BytesIO
 import sys
 import time
-import numpy as np
 import cv2
 import ailia
-from fastapi import FastAPI, UploadFile, File
-from fastapi.responses import StreamingResponse
+import numpy as np
 from logging import getLogger
-from io import BytesIO
+from fastapi import FastAPI, UploadFile, File, Form
+from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 sys.path.append('util/')
@@ -99,6 +99,7 @@ def predict(net, img, onnx=False):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     im_h, im_w = img.shape[:2]
     img, pad_hw, resized_hw = preprocess(img)
+    # output = cudnn.inference(img)
     output = net.run(None, {'input_image': img}) if onnx else net.predict([img])
     output = output[0]
     img = post_processing(output[0], (im_h, im_w), pad_hw, resized_hw)
@@ -121,7 +122,7 @@ def load_model(model_name, onnx=False):
 # ======================
 
 @app.post("/predict/")
-async def predict_image(file: UploadFile = File(...), model_name: str = 'paprika'):
+async def predict_image(file: UploadFile = File(...), model_name: str = Form(...)):
     content = await file.read()
     img_array = np.frombuffer(content, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

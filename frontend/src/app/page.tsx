@@ -22,6 +22,8 @@ export default function Home() {
     setModelName(event.target.value);
   };
 
+console.log(modelName);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData();
@@ -29,7 +31,7 @@ export default function Home() {
       formData.append("file", selectedFile);
     }
     formData.append("model_name", modelName);
-
+    console.log(formData);
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/predict/`,
