@@ -3,7 +3,7 @@ import time
 import numpy as np
 import cv2
 import ailia
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import StreamingResponse
 from logging import getLogger
 from io import BytesIO
@@ -121,11 +121,11 @@ def load_model(model_name, onnx=False):
 # ======================
 
 @app.post("/predict/")
-async def predict_image(file: UploadFile = File(...), model_name: str = 'paprika'):
+async def predict_image(file: UploadFile = File(...), model_name: str = Form(...)):
     content = await file.read()
     img_array = np.frombuffer(content, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    
+
     net = load_model(model_name)
     out_img = predict(net, img)
 
