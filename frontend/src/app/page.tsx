@@ -1,5 +1,15 @@
 "use client";
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Home() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -18,11 +28,11 @@ export default function Home() {
     }
   };
 
-  const handleModelChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setModelName(event.target.value);
+  const handleModelChange = (value: string) => {
+    setModelName(value);
   };
 
-console.log(modelName);
+  console.log(modelName);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,7 +41,7 @@ console.log(modelName);
       formData.append("file", selectedFile);
     }
     formData.append("model_name", modelName);
-    console.log(formData);
+
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/predict/`,
@@ -54,33 +64,40 @@ console.log(modelName);
   };
 
   return (
-    <main className="container mx-auto mt-20 p-5 ">
+    <main className="container mx-auto mt-20 p-5">
       <hgroup>
         <h1 className="m-4 text-center text-4xl font-bold">
           Image Style Transfer
         </h1>
       </hgroup>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type="file" onChange={handleFileChange} required />
+      <form
+        className="flex max-w-[600px] justify-center duration-700 animate-in fade-in"
+        onSubmit={handleSubmit}
+      >
+        <div className="mt-4 flex space-x-2">
+          <Select onValueChange={handleModelChange}>
+            <SelectTrigger className="w-[220px]">
+              <SelectValue placeholder="Select Model" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="paprika">Paprika</SelectItem>
+              <SelectItem value="hayao">Hayao</SelectItem>
+              <SelectItem value="shinkai">Shinkai</SelectItem>
+              <SelectItem value="celeba">Celeba</SelectItem>
+              <SelectItem value="face_paint">Face Paint</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Input
+            id="picture"
+            type="file"
+            onChange={handleFileChange}
+            required
+          />
+          <Button type="submit">Upload and Stylize</Button>
         </div>
-        <div>
-          <label htmlFor="model_name">Choose a model: </label>
-          <select
-            id="model_name"
-            value={modelName}
-            onChange={handleModelChange}
-          >
-            <option value="paprika">Paprika</option>
-            <option value="hayao">Hayao</option>
-            <option value="shinkai">Shinkai</option>
-            <option value="celeba">Celeba</option>
-            <option value="face_paint">Face Paint</option>
-          </select>
-        </div>
-        <button type="submit">Upload and Stylize</button>
       </form>
-      <div className="flex justify-around">
+      <div className=" ">
         <div id="imagePreview" className="mb-4 mt-6">
           {imagePreviewUrl && (
             <div>
@@ -89,7 +106,7 @@ console.log(modelName);
                 className="rounded-md"
                 src={imagePreviewUrl}
                 alt="Preview"
-                style={{ width: "300px", height: "300px" }}
+                style={{ width: "50%", height: "50%" }}
               />
             </div>
           )}
@@ -102,7 +119,7 @@ console.log(modelName);
                 className="rounded-md"
                 src={outputImage}
                 alt="Stylized Output"
-                style={{ width: "300px", height: "300px" }}
+                style={{ width: "50%", height: "50%" }}
               />
             </div>
           )}

@@ -1,6 +1,5 @@
 from io import BytesIO
 import sys
-import time
 import cv2
 import ailia
 import numpy as np
@@ -126,7 +125,7 @@ async def predict_image(file: UploadFile = File(...), model_name: str = Form(...
     content = await file.read()
     img_array = np.frombuffer(content, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    
+
     net = load_model(model_name)
     out_img = predict(net, img)
 
