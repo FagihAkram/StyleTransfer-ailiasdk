@@ -1,0 +1,7807 @@
+ir_version: 6
+producer_name: "pytorch"
+producer_version: "1.9"
+model_version: 0
+graph {
+  name: "torch-jit-export"
+  node {
+    input: "892"
+    output: "87"
+    name: "ConstantOfShape_0"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "893"
+    input: "87"
+    output: "88"
+    name: "Concat_1"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "89"
+    name: "Constant_2"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "88"
+    input: "89"
+    output: "90"
+    name: "Reshape_3"
+    op_type: "Reshape"
+  }
+  node {
+    output: "91"
+    name: "Constant_4"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "92"
+    name: "Constant_5"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "93"
+    name: "Constant_6"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "94"
+    name: "Constant_7"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "90"
+    input: "92"
+    input: "93"
+    input: "91"
+    input: "94"
+    output: "95"
+    name: "Slice_8"
+    op_type: "Slice"
+  }
+  node {
+    input: "95"
+    output: "96"
+    name: "Transpose_9"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "97"
+    name: "Constant_10"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "96"
+    input: "97"
+    output: "98"
+    name: "Reshape_11"
+    op_type: "Reshape"
+  }
+  node {
+    input: "98"
+    output: "99"
+    name: "Cast_12"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "input_image"
+    input: "99"
+    output: "100"
+    name: "Pad_13"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "100"
+    input: "block_a.0.1.weight"
+    output: "101"
+    name: "Conv_14"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 7
+      ints: 7
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "102"
+    name: "Constant_15"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "101"
+    input: "102"
+    output: "103"
+    name: "Reshape_16"
+    op_type: "Reshape"
+  }
+  node {
+    output: "104"
+    name: "Constant_17"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "105"
+    name: "Constant_18"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "103"
+    input: "104"
+    input: "105"
+    output: "106"
+    name: "InstanceNormalization_19"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "101"
+    output: "107"
+    name: "Shape_20"
+    op_type: "Shape"
+  }
+  node {
+    input: "106"
+    input: "107"
+    output: "108"
+    name: "Reshape_21"
+    op_type: "Reshape"
+  }
+  node {
+    input: "108"
+    input: "894"
+    output: "110"
+    name: "Mul_22"
+    op_type: "Mul"
+  }
+  node {
+    input: "110"
+    input: "895"
+    output: "112"
+    name: "Add_23"
+    op_type: "Add"
+  }
+  node {
+    input: "112"
+    output: "113"
+    name: "LeakyRelu_24"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "899"
+    output: "123"
+    name: "ConstantOfShape_25"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "900"
+    input: "123"
+    output: "124"
+    name: "Concat_26"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "125"
+    name: "Constant_27"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "124"
+    input: "125"
+    output: "126"
+    name: "Reshape_28"
+    op_type: "Reshape"
+  }
+  node {
+    output: "127"
+    name: "Constant_29"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "128"
+    name: "Constant_30"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "129"
+    name: "Constant_31"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "130"
+    name: "Constant_32"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "126"
+    input: "128"
+    input: "129"
+    input: "127"
+    input: "130"
+    output: "131"
+    name: "Slice_33"
+    op_type: "Slice"
+  }
+  node {
+    input: "131"
+    output: "132"
+    name: "Transpose_34"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "133"
+    name: "Constant_35"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "132"
+    input: "133"
+    output: "134"
+    name: "Reshape_36"
+    op_type: "Reshape"
+  }
+  node {
+    input: "134"
+    output: "135"
+    name: "Cast_37"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "113"
+    input: "135"
+    output: "136"
+    name: "Pad_38"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "136"
+    input: "block_a.1.1.weight"
+    output: "137"
+    name: "Conv_39"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    output: "138"
+    name: "Constant_40"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "137"
+    input: "138"
+    output: "139"
+    name: "Reshape_41"
+    op_type: "Reshape"
+  }
+  node {
+    output: "140"
+    name: "Constant_42"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "141"
+    name: "Constant_43"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "139"
+    input: "140"
+    input: "141"
+    output: "142"
+    name: "InstanceNormalization_44"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "137"
+    output: "143"
+    name: "Shape_45"
+    op_type: "Shape"
+  }
+  node {
+    input: "142"
+    input: "143"
+    output: "144"
+    name: "Reshape_46"
+    op_type: "Reshape"
+  }
+  node {
+    input: "144"
+    input: "901"
+    output: "146"
+    name: "Mul_47"
+    op_type: "Mul"
+  }
+  node {
+    input: "146"
+    input: "902"
+    output: "148"
+    name: "Add_48"
+    op_type: "Add"
+  }
+  node {
+    input: "148"
+    output: "149"
+    name: "LeakyRelu_49"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "906"
+    output: "159"
+    name: "ConstantOfShape_50"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "907"
+    input: "159"
+    output: "160"
+    name: "Concat_51"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "161"
+    name: "Constant_52"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "160"
+    input: "161"
+    output: "162"
+    name: "Reshape_53"
+    op_type: "Reshape"
+  }
+  node {
+    output: "163"
+    name: "Constant_54"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "164"
+    name: "Constant_55"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "165"
+    name: "Constant_56"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "166"
+    name: "Constant_57"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "162"
+    input: "164"
+    input: "165"
+    input: "163"
+    input: "166"
+    output: "167"
+    name: "Slice_58"
+    op_type: "Slice"
+  }
+  node {
+    input: "167"
+    output: "168"
+    name: "Transpose_59"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "169"
+    name: "Constant_60"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "168"
+    input: "169"
+    output: "170"
+    name: "Reshape_61"
+    op_type: "Reshape"
+  }
+  node {
+    input: "170"
+    output: "171"
+    name: "Cast_62"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "149"
+    input: "171"
+    output: "172"
+    name: "Pad_63"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "172"
+    input: "block_a.2.1.weight"
+    output: "173"
+    name: "Conv_64"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "174"
+    name: "Constant_65"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "173"
+    input: "174"
+    output: "175"
+    name: "Reshape_66"
+    op_type: "Reshape"
+  }
+  node {
+    output: "176"
+    name: "Constant_67"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "177"
+    name: "Constant_68"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "175"
+    input: "176"
+    input: "177"
+    output: "178"
+    name: "InstanceNormalization_69"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "173"
+    output: "179"
+    name: "Shape_70"
+    op_type: "Shape"
+  }
+  node {
+    input: "178"
+    input: "179"
+    output: "180"
+    name: "Reshape_71"
+    op_type: "Reshape"
+  }
+  node {
+    input: "180"
+    input: "908"
+    output: "182"
+    name: "Mul_72"
+    op_type: "Mul"
+  }
+  node {
+    input: "182"
+    input: "909"
+    output: "184"
+    name: "Add_73"
+    op_type: "Add"
+  }
+  node {
+    input: "184"
+    output: "185"
+    name: "LeakyRelu_74"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "185"
+    output: "186"
+    name: "Shape_75"
+    op_type: "Shape"
+  }
+  node {
+    output: "187"
+    name: "Constant_76"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "186"
+    input: "187"
+    output: "188"
+    name: "Gather_77"
+    op_type: "Gather"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    input: "185"
+    output: "189"
+    name: "Shape_78"
+    op_type: "Shape"
+  }
+  node {
+    output: "190"
+    name: "Constant_79"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "189"
+    input: "190"
+    output: "191"
+    name: "Gather_80"
+    op_type: "Gather"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    input: "913"
+    output: "201"
+    name: "ConstantOfShape_81"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "914"
+    input: "201"
+    output: "202"
+    name: "Concat_82"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "203"
+    name: "Constant_83"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "202"
+    input: "203"
+    output: "204"
+    name: "Reshape_84"
+    op_type: "Reshape"
+  }
+  node {
+    output: "205"
+    name: "Constant_85"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "206"
+    name: "Constant_86"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "207"
+    name: "Constant_87"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "208"
+    name: "Constant_88"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "204"
+    input: "206"
+    input: "207"
+    input: "205"
+    input: "208"
+    output: "209"
+    name: "Slice_89"
+    op_type: "Slice"
+  }
+  node {
+    input: "209"
+    output: "210"
+    name: "Transpose_90"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "211"
+    name: "Constant_91"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "210"
+    input: "211"
+    output: "212"
+    name: "Reshape_92"
+    op_type: "Reshape"
+  }
+  node {
+    input: "212"
+    output: "213"
+    name: "Cast_93"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "185"
+    input: "213"
+    output: "214"
+    name: "Pad_94"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "214"
+    input: "block_b.0.1.weight"
+    output: "215"
+    name: "Conv_95"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    output: "216"
+    name: "Constant_96"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "215"
+    input: "216"
+    output: "217"
+    name: "Reshape_97"
+    op_type: "Reshape"
+  }
+  node {
+    output: "218"
+    name: "Constant_98"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "219"
+    name: "Constant_99"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "217"
+    input: "218"
+    input: "219"
+    output: "220"
+    name: "InstanceNormalization_100"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "215"
+    output: "221"
+    name: "Shape_101"
+    op_type: "Shape"
+  }
+  node {
+    input: "220"
+    input: "221"
+    output: "222"
+    name: "Reshape_102"
+    op_type: "Reshape"
+  }
+  node {
+    input: "222"
+    input: "915"
+    output: "224"
+    name: "Mul_103"
+    op_type: "Mul"
+  }
+  node {
+    input: "224"
+    input: "916"
+    output: "226"
+    name: "Add_104"
+    op_type: "Add"
+  }
+  node {
+    input: "226"
+    output: "227"
+    name: "LeakyRelu_105"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "920"
+    output: "237"
+    name: "ConstantOfShape_106"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "921"
+    input: "237"
+    output: "238"
+    name: "Concat_107"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "239"
+    name: "Constant_108"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "238"
+    input: "239"
+    output: "240"
+    name: "Reshape_109"
+    op_type: "Reshape"
+  }
+  node {
+    output: "241"
+    name: "Constant_110"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "242"
+    name: "Constant_111"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "243"
+    name: "Constant_112"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "244"
+    name: "Constant_113"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "240"
+    input: "242"
+    input: "243"
+    input: "241"
+    input: "244"
+    output: "245"
+    name: "Slice_114"
+    op_type: "Slice"
+  }
+  node {
+    input: "245"
+    output: "246"
+    name: "Transpose_115"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "247"
+    name: "Constant_116"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "246"
+    input: "247"
+    output: "248"
+    name: "Reshape_117"
+    op_type: "Reshape"
+  }
+  node {
+    input: "248"
+    output: "249"
+    name: "Cast_118"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "227"
+    input: "249"
+    output: "250"
+    name: "Pad_119"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "250"
+    input: "block_b.1.1.weight"
+    output: "251"
+    name: "Conv_120"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "252"
+    name: "Constant_121"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "251"
+    input: "252"
+    output: "253"
+    name: "Reshape_122"
+    op_type: "Reshape"
+  }
+  node {
+    output: "254"
+    name: "Constant_123"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "255"
+    name: "Constant_124"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "253"
+    input: "254"
+    input: "255"
+    output: "256"
+    name: "InstanceNormalization_125"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "251"
+    output: "257"
+    name: "Shape_126"
+    op_type: "Shape"
+  }
+  node {
+    input: "256"
+    input: "257"
+    output: "258"
+    name: "Reshape_127"
+    op_type: "Reshape"
+  }
+  node {
+    input: "258"
+    input: "922"
+    output: "260"
+    name: "Mul_128"
+    op_type: "Mul"
+  }
+  node {
+    input: "260"
+    input: "923"
+    output: "262"
+    name: "Add_129"
+    op_type: "Add"
+  }
+  node {
+    input: "262"
+    output: "263"
+    name: "LeakyRelu_130"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "927"
+    output: "273"
+    name: "ConstantOfShape_131"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "928"
+    input: "273"
+    output: "274"
+    name: "Concat_132"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "275"
+    name: "Constant_133"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "274"
+    input: "275"
+    output: "276"
+    name: "Reshape_134"
+    op_type: "Reshape"
+  }
+  node {
+    output: "277"
+    name: "Constant_135"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "278"
+    name: "Constant_136"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "279"
+    name: "Constant_137"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "280"
+    name: "Constant_138"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "276"
+    input: "278"
+    input: "279"
+    input: "277"
+    input: "280"
+    output: "281"
+    name: "Slice_139"
+    op_type: "Slice"
+  }
+  node {
+    input: "281"
+    output: "282"
+    name: "Transpose_140"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "283"
+    name: "Constant_141"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "282"
+    input: "283"
+    output: "284"
+    name: "Reshape_142"
+    op_type: "Reshape"
+  }
+  node {
+    input: "284"
+    output: "285"
+    name: "Cast_143"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "263"
+    input: "285"
+    output: "286"
+    name: "Pad_144"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "286"
+    input: "block_c.0.1.weight"
+    output: "287"
+    name: "Conv_145"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "288"
+    name: "Constant_146"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "287"
+    input: "288"
+    output: "289"
+    name: "Reshape_147"
+    op_type: "Reshape"
+  }
+  node {
+    output: "290"
+    name: "Constant_148"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "291"
+    name: "Constant_149"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "289"
+    input: "290"
+    input: "291"
+    output: "292"
+    name: "InstanceNormalization_150"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "287"
+    output: "293"
+    name: "Shape_151"
+    op_type: "Shape"
+  }
+  node {
+    input: "292"
+    input: "293"
+    output: "294"
+    name: "Reshape_152"
+    op_type: "Reshape"
+  }
+  node {
+    input: "294"
+    input: "929"
+    output: "296"
+    name: "Mul_153"
+    op_type: "Mul"
+  }
+  node {
+    input: "296"
+    input: "930"
+    output: "298"
+    name: "Add_154"
+    op_type: "Add"
+  }
+  node {
+    input: "298"
+    output: "299"
+    name: "LeakyRelu_155"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "934"
+    output: "309"
+    name: "ConstantOfShape_156"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "935"
+    input: "309"
+    output: "310"
+    name: "Concat_157"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "311"
+    name: "Constant_158"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "310"
+    input: "311"
+    output: "312"
+    name: "Reshape_159"
+    op_type: "Reshape"
+  }
+  node {
+    output: "313"
+    name: "Constant_160"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "314"
+    name: "Constant_161"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "315"
+    name: "Constant_162"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "316"
+    name: "Constant_163"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "312"
+    input: "314"
+    input: "315"
+    input: "313"
+    input: "316"
+    output: "317"
+    name: "Slice_164"
+    op_type: "Slice"
+  }
+  node {
+    input: "317"
+    output: "318"
+    name: "Transpose_165"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "319"
+    name: "Constant_166"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "318"
+    input: "319"
+    output: "320"
+    name: "Reshape_167"
+    op_type: "Reshape"
+  }
+  node {
+    input: "320"
+    output: "321"
+    name: "Cast_168"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "299"
+    input: "321"
+    output: "322"
+    name: "Pad_169"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "322"
+    input: "block_c.1.layers.0.1.weight"
+    output: "323"
+    name: "Conv_170"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "324"
+    name: "Constant_171"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "323"
+    input: "324"
+    output: "325"
+    name: "Reshape_172"
+    op_type: "Reshape"
+  }
+  node {
+    output: "326"
+    name: "Constant_173"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "327"
+    name: "Constant_174"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "325"
+    input: "326"
+    input: "327"
+    output: "328"
+    name: "InstanceNormalization_175"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "323"
+    output: "329"
+    name: "Shape_176"
+    op_type: "Shape"
+  }
+  node {
+    input: "328"
+    input: "329"
+    output: "330"
+    name: "Reshape_177"
+    op_type: "Reshape"
+  }
+  node {
+    input: "330"
+    input: "936"
+    output: "332"
+    name: "Mul_178"
+    op_type: "Mul"
+  }
+  node {
+    input: "332"
+    input: "937"
+    output: "334"
+    name: "Add_179"
+    op_type: "Add"
+  }
+  node {
+    input: "334"
+    output: "335"
+    name: "LeakyRelu_180"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "941"
+    output: "345"
+    name: "ConstantOfShape_181"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "942"
+    input: "345"
+    output: "346"
+    name: "Concat_182"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "347"
+    name: "Constant_183"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "346"
+    input: "347"
+    output: "348"
+    name: "Reshape_184"
+    op_type: "Reshape"
+  }
+  node {
+    output: "349"
+    name: "Constant_185"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "350"
+    name: "Constant_186"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "351"
+    name: "Constant_187"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "352"
+    name: "Constant_188"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "348"
+    input: "350"
+    input: "351"
+    input: "349"
+    input: "352"
+    output: "353"
+    name: "Slice_189"
+    op_type: "Slice"
+  }
+  node {
+    input: "353"
+    output: "354"
+    name: "Transpose_190"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "355"
+    name: "Constant_191"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "354"
+    input: "355"
+    output: "356"
+    name: "Reshape_192"
+    op_type: "Reshape"
+  }
+  node {
+    input: "356"
+    output: "357"
+    name: "Cast_193"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "335"
+    input: "357"
+    output: "358"
+    name: "Pad_194"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "358"
+    input: "block_c.1.layers.1.1.weight"
+    input: "block_c.1.layers.1.1.bias"
+    output: "359"
+    name: "Conv_195"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "360"
+    name: "Constant_196"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "359"
+    input: "360"
+    output: "361"
+    name: "Reshape_197"
+    op_type: "Reshape"
+  }
+  node {
+    output: "362"
+    name: "Constant_198"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "363"
+    name: "Constant_199"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "361"
+    input: "362"
+    input: "363"
+    output: "364"
+    name: "InstanceNormalization_200"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "359"
+    output: "365"
+    name: "Shape_201"
+    op_type: "Shape"
+  }
+  node {
+    input: "364"
+    input: "365"
+    output: "366"
+    name: "Reshape_202"
+    op_type: "Reshape"
+  }
+  node {
+    input: "366"
+    input: "943"
+    output: "368"
+    name: "Mul_203"
+    op_type: "Mul"
+  }
+  node {
+    input: "368"
+    input: "944"
+    output: "370"
+    name: "Add_204"
+    op_type: "Add"
+  }
+  node {
+    input: "370"
+    output: "371"
+    name: "LeakyRelu_205"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "371"
+    input: "block_c.1.layers.2.weight"
+    output: "372"
+    name: "Conv_206"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "373"
+    name: "Constant_207"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "372"
+    input: "373"
+    output: "374"
+    name: "Reshape_208"
+    op_type: "Reshape"
+  }
+  node {
+    output: "375"
+    name: "Constant_209"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "376"
+    name: "Constant_210"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "374"
+    input: "375"
+    input: "376"
+    output: "377"
+    name: "InstanceNormalization_211"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "372"
+    output: "378"
+    name: "Shape_212"
+    op_type: "Shape"
+  }
+  node {
+    input: "377"
+    input: "378"
+    output: "379"
+    name: "Reshape_213"
+    op_type: "Reshape"
+  }
+  node {
+    input: "379"
+    input: "945"
+    output: "381"
+    name: "Mul_214"
+    op_type: "Mul"
+  }
+  node {
+    input: "381"
+    input: "946"
+    output: "383"
+    name: "Add_215"
+    op_type: "Add"
+  }
+  node {
+    input: "950"
+    output: "393"
+    name: "ConstantOfShape_216"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "951"
+    input: "393"
+    output: "394"
+    name: "Concat_217"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "395"
+    name: "Constant_218"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "394"
+    input: "395"
+    output: "396"
+    name: "Reshape_219"
+    op_type: "Reshape"
+  }
+  node {
+    output: "397"
+    name: "Constant_220"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "398"
+    name: "Constant_221"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "399"
+    name: "Constant_222"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "400"
+    name: "Constant_223"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "396"
+    input: "398"
+    input: "399"
+    input: "397"
+    input: "400"
+    output: "401"
+    name: "Slice_224"
+    op_type: "Slice"
+  }
+  node {
+    input: "401"
+    output: "402"
+    name: "Transpose_225"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "403"
+    name: "Constant_226"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "402"
+    input: "403"
+    output: "404"
+    name: "Reshape_227"
+    op_type: "Reshape"
+  }
+  node {
+    input: "404"
+    output: "405"
+    name: "Cast_228"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "383"
+    input: "405"
+    output: "406"
+    name: "Pad_229"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "406"
+    input: "block_c.2.layers.0.1.weight"
+    output: "407"
+    name: "Conv_230"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "408"
+    name: "Constant_231"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "407"
+    input: "408"
+    output: "409"
+    name: "Reshape_232"
+    op_type: "Reshape"
+  }
+  node {
+    output: "410"
+    name: "Constant_233"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "411"
+    name: "Constant_234"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "409"
+    input: "410"
+    input: "411"
+    output: "412"
+    name: "InstanceNormalization_235"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "407"
+    output: "413"
+    name: "Shape_236"
+    op_type: "Shape"
+  }
+  node {
+    input: "412"
+    input: "413"
+    output: "414"
+    name: "Reshape_237"
+    op_type: "Reshape"
+  }
+  node {
+    input: "414"
+    input: "952"
+    output: "416"
+    name: "Mul_238"
+    op_type: "Mul"
+  }
+  node {
+    input: "416"
+    input: "953"
+    output: "418"
+    name: "Add_239"
+    op_type: "Add"
+  }
+  node {
+    input: "418"
+    output: "419"
+    name: "LeakyRelu_240"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "957"
+    output: "429"
+    name: "ConstantOfShape_241"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "958"
+    input: "429"
+    output: "430"
+    name: "Concat_242"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "431"
+    name: "Constant_243"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "430"
+    input: "431"
+    output: "432"
+    name: "Reshape_244"
+    op_type: "Reshape"
+  }
+  node {
+    output: "433"
+    name: "Constant_245"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "434"
+    name: "Constant_246"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "435"
+    name: "Constant_247"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "436"
+    name: "Constant_248"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "432"
+    input: "434"
+    input: "435"
+    input: "433"
+    input: "436"
+    output: "437"
+    name: "Slice_249"
+    op_type: "Slice"
+  }
+  node {
+    input: "437"
+    output: "438"
+    name: "Transpose_250"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "439"
+    name: "Constant_251"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "438"
+    input: "439"
+    output: "440"
+    name: "Reshape_252"
+    op_type: "Reshape"
+  }
+  node {
+    input: "440"
+    output: "441"
+    name: "Cast_253"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "419"
+    input: "441"
+    output: "442"
+    name: "Pad_254"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "442"
+    input: "block_c.2.layers.1.1.weight"
+    input: "block_c.2.layers.1.1.bias"
+    output: "443"
+    name: "Conv_255"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 512
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "444"
+    name: "Constant_256"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "443"
+    input: "444"
+    output: "445"
+    name: "Reshape_257"
+    op_type: "Reshape"
+  }
+  node {
+    output: "446"
+    name: "Constant_258"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "447"
+    name: "Constant_259"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "445"
+    input: "446"
+    input: "447"
+    output: "448"
+    name: "InstanceNormalization_260"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "443"
+    output: "449"
+    name: "Shape_261"
+    op_type: "Shape"
+  }
+  node {
+    input: "448"
+    input: "449"
+    output: "450"
+    name: "Reshape_262"
+    op_type: "Reshape"
+  }
+  node {
+    input: "450"
+    input: "959"
+    output: "452"
+    name: "Mul_263"
+    op_type: "Mul"
+  }
+  node {
+    input: "452"
+    input: "960"
+    output: "454"
+    name: "Add_264"
+    op_type: "Add"
+  }
+  node {
+    input: "454"
+    output: "455"
+    name: "LeakyRelu_265"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "455"
+    input: "block_c.2.layers.2.weight"
+    output: "456"
+    name: "Conv_266"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "457"
+    name: "Constant_267"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "456"
+    input: "457"
+    output: "458"
+    name: "Reshape_268"
+    op_type: "Reshape"
+  }
+  node {
+    output: "459"
+    name: "Constant_269"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "460"
+    name: "Constant_270"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "458"
+    input: "459"
+    input: "460"
+    output: "461"
+    name: "InstanceNormalization_271"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "456"
+    output: "462"
+    name: "Shape_272"
+    op_type: "Shape"
+  }
+  node {
+    input: "461"
+    input: "462"
+    output: "463"
+    name: "Reshape_273"
+    op_type: "Reshape"
+  }
+  node {
+    input: "463"
+    input: "961"
+    output: "465"
+    name: "Mul_274"
+    op_type: "Mul"
+  }
+  node {
+    input: "465"
+    input: "962"
+    output: "467"
+    name: "Add_275"
+    op_type: "Add"
+  }
+  node {
+    input: "383"
+    input: "467"
+    output: "468"
+    name: "Add_276"
+    op_type: "Add"
+  }
+  node {
+    input: "966"
+    output: "478"
+    name: "ConstantOfShape_277"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "967"
+    input: "478"
+    output: "479"
+    name: "Concat_278"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "480"
+    name: "Constant_279"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "479"
+    input: "480"
+    output: "481"
+    name: "Reshape_280"
+    op_type: "Reshape"
+  }
+  node {
+    output: "482"
+    name: "Constant_281"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "483"
+    name: "Constant_282"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "484"
+    name: "Constant_283"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "485"
+    name: "Constant_284"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "481"
+    input: "483"
+    input: "484"
+    input: "482"
+    input: "485"
+    output: "486"
+    name: "Slice_285"
+    op_type: "Slice"
+  }
+  node {
+    input: "486"
+    output: "487"
+    name: "Transpose_286"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "488"
+    name: "Constant_287"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "487"
+    input: "488"
+    output: "489"
+    name: "Reshape_288"
+    op_type: "Reshape"
+  }
+  node {
+    input: "489"
+    output: "490"
+    name: "Cast_289"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "468"
+    input: "490"
+    output: "491"
+    name: "Pad_290"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "491"
+    input: "block_c.3.layers.0.1.weight"
+    output: "492"
+    name: "Conv_291"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "493"
+    name: "Constant_292"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "492"
+    input: "493"
+    output: "494"
+    name: "Reshape_293"
+    op_type: "Reshape"
+  }
+  node {
+    output: "495"
+    name: "Constant_294"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "496"
+    name: "Constant_295"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "494"
+    input: "495"
+    input: "496"
+    output: "497"
+    name: "InstanceNormalization_296"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "492"
+    output: "498"
+    name: "Shape_297"
+    op_type: "Shape"
+  }
+  node {
+    input: "497"
+    input: "498"
+    output: "499"
+    name: "Reshape_298"
+    op_type: "Reshape"
+  }
+  node {
+    input: "499"
+    input: "968"
+    output: "501"
+    name: "Mul_299"
+    op_type: "Mul"
+  }
+  node {
+    input: "501"
+    input: "969"
+    output: "503"
+    name: "Add_300"
+    op_type: "Add"
+  }
+  node {
+    input: "503"
+    output: "504"
+    name: "LeakyRelu_301"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "973"
+    output: "514"
+    name: "ConstantOfShape_302"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "974"
+    input: "514"
+    output: "515"
+    name: "Concat_303"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "516"
+    name: "Constant_304"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "515"
+    input: "516"
+    output: "517"
+    name: "Reshape_305"
+    op_type: "Reshape"
+  }
+  node {
+    output: "518"
+    name: "Constant_306"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "519"
+    name: "Constant_307"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "520"
+    name: "Constant_308"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "521"
+    name: "Constant_309"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "517"
+    input: "519"
+    input: "520"
+    input: "518"
+    input: "521"
+    output: "522"
+    name: "Slice_310"
+    op_type: "Slice"
+  }
+  node {
+    input: "522"
+    output: "523"
+    name: "Transpose_311"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "524"
+    name: "Constant_312"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "523"
+    input: "524"
+    output: "525"
+    name: "Reshape_313"
+    op_type: "Reshape"
+  }
+  node {
+    input: "525"
+    output: "526"
+    name: "Cast_314"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "504"
+    input: "526"
+    output: "527"
+    name: "Pad_315"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "527"
+    input: "block_c.3.layers.1.1.weight"
+    input: "block_c.3.layers.1.1.bias"
+    output: "528"
+    name: "Conv_316"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 512
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "529"
+    name: "Constant_317"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "528"
+    input: "529"
+    output: "530"
+    name: "Reshape_318"
+    op_type: "Reshape"
+  }
+  node {
+    output: "531"
+    name: "Constant_319"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "532"
+    name: "Constant_320"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "530"
+    input: "531"
+    input: "532"
+    output: "533"
+    name: "InstanceNormalization_321"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "528"
+    output: "534"
+    name: "Shape_322"
+    op_type: "Shape"
+  }
+  node {
+    input: "533"
+    input: "534"
+    output: "535"
+    name: "Reshape_323"
+    op_type: "Reshape"
+  }
+  node {
+    input: "535"
+    input: "975"
+    output: "537"
+    name: "Mul_324"
+    op_type: "Mul"
+  }
+  node {
+    input: "537"
+    input: "976"
+    output: "539"
+    name: "Add_325"
+    op_type: "Add"
+  }
+  node {
+    input: "539"
+    output: "540"
+    name: "LeakyRelu_326"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "540"
+    input: "block_c.3.layers.2.weight"
+    output: "541"
+    name: "Conv_327"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "542"
+    name: "Constant_328"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "541"
+    input: "542"
+    output: "543"
+    name: "Reshape_329"
+    op_type: "Reshape"
+  }
+  node {
+    output: "544"
+    name: "Constant_330"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "545"
+    name: "Constant_331"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "543"
+    input: "544"
+    input: "545"
+    output: "546"
+    name: "InstanceNormalization_332"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "541"
+    output: "547"
+    name: "Shape_333"
+    op_type: "Shape"
+  }
+  node {
+    input: "546"
+    input: "547"
+    output: "548"
+    name: "Reshape_334"
+    op_type: "Reshape"
+  }
+  node {
+    input: "548"
+    input: "977"
+    output: "550"
+    name: "Mul_335"
+    op_type: "Mul"
+  }
+  node {
+    input: "550"
+    input: "978"
+    output: "552"
+    name: "Add_336"
+    op_type: "Add"
+  }
+  node {
+    input: "468"
+    input: "552"
+    output: "553"
+    name: "Add_337"
+    op_type: "Add"
+  }
+  node {
+    input: "982"
+    output: "563"
+    name: "ConstantOfShape_338"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "983"
+    input: "563"
+    output: "564"
+    name: "Concat_339"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "565"
+    name: "Constant_340"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "564"
+    input: "565"
+    output: "566"
+    name: "Reshape_341"
+    op_type: "Reshape"
+  }
+  node {
+    output: "567"
+    name: "Constant_342"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "568"
+    name: "Constant_343"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "569"
+    name: "Constant_344"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "570"
+    name: "Constant_345"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "566"
+    input: "568"
+    input: "569"
+    input: "567"
+    input: "570"
+    output: "571"
+    name: "Slice_346"
+    op_type: "Slice"
+  }
+  node {
+    input: "571"
+    output: "572"
+    name: "Transpose_347"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "573"
+    name: "Constant_348"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "572"
+    input: "573"
+    output: "574"
+    name: "Reshape_349"
+    op_type: "Reshape"
+  }
+  node {
+    input: "574"
+    output: "575"
+    name: "Cast_350"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "553"
+    input: "575"
+    output: "576"
+    name: "Pad_351"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "576"
+    input: "block_c.4.layers.0.1.weight"
+    output: "577"
+    name: "Conv_352"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "578"
+    name: "Constant_353"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "577"
+    input: "578"
+    output: "579"
+    name: "Reshape_354"
+    op_type: "Reshape"
+  }
+  node {
+    output: "580"
+    name: "Constant_355"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "581"
+    name: "Constant_356"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "579"
+    input: "580"
+    input: "581"
+    output: "582"
+    name: "InstanceNormalization_357"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "577"
+    output: "583"
+    name: "Shape_358"
+    op_type: "Shape"
+  }
+  node {
+    input: "582"
+    input: "583"
+    output: "584"
+    name: "Reshape_359"
+    op_type: "Reshape"
+  }
+  node {
+    input: "584"
+    input: "984"
+    output: "586"
+    name: "Mul_360"
+    op_type: "Mul"
+  }
+  node {
+    input: "586"
+    input: "985"
+    output: "588"
+    name: "Add_361"
+    op_type: "Add"
+  }
+  node {
+    input: "588"
+    output: "589"
+    name: "LeakyRelu_362"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "989"
+    output: "599"
+    name: "ConstantOfShape_363"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "990"
+    input: "599"
+    output: "600"
+    name: "Concat_364"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "601"
+    name: "Constant_365"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "600"
+    input: "601"
+    output: "602"
+    name: "Reshape_366"
+    op_type: "Reshape"
+  }
+  node {
+    output: "603"
+    name: "Constant_367"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "604"
+    name: "Constant_368"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "605"
+    name: "Constant_369"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "606"
+    name: "Constant_370"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "602"
+    input: "604"
+    input: "605"
+    input: "603"
+    input: "606"
+    output: "607"
+    name: "Slice_371"
+    op_type: "Slice"
+  }
+  node {
+    input: "607"
+    output: "608"
+    name: "Transpose_372"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "609"
+    name: "Constant_373"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "608"
+    input: "609"
+    output: "610"
+    name: "Reshape_374"
+    op_type: "Reshape"
+  }
+  node {
+    input: "610"
+    output: "611"
+    name: "Cast_375"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "589"
+    input: "611"
+    output: "612"
+    name: "Pad_376"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "612"
+    input: "block_c.4.layers.1.1.weight"
+    input: "block_c.4.layers.1.1.bias"
+    output: "613"
+    name: "Conv_377"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 512
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "614"
+    name: "Constant_378"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "613"
+    input: "614"
+    output: "615"
+    name: "Reshape_379"
+    op_type: "Reshape"
+  }
+  node {
+    output: "616"
+    name: "Constant_380"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "617"
+    name: "Constant_381"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "615"
+    input: "616"
+    input: "617"
+    output: "618"
+    name: "InstanceNormalization_382"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "613"
+    output: "619"
+    name: "Shape_383"
+    op_type: "Shape"
+  }
+  node {
+    input: "618"
+    input: "619"
+    output: "620"
+    name: "Reshape_384"
+    op_type: "Reshape"
+  }
+  node {
+    input: "620"
+    input: "991"
+    output: "622"
+    name: "Mul_385"
+    op_type: "Mul"
+  }
+  node {
+    input: "622"
+    input: "992"
+    output: "624"
+    name: "Add_386"
+    op_type: "Add"
+  }
+  node {
+    input: "624"
+    output: "625"
+    name: "LeakyRelu_387"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "625"
+    input: "block_c.4.layers.2.weight"
+    output: "626"
+    name: "Conv_388"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "627"
+    name: "Constant_389"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "626"
+    input: "627"
+    output: "628"
+    name: "Reshape_390"
+    op_type: "Reshape"
+  }
+  node {
+    output: "629"
+    name: "Constant_391"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "630"
+    name: "Constant_392"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "628"
+    input: "629"
+    input: "630"
+    output: "631"
+    name: "InstanceNormalization_393"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "626"
+    output: "632"
+    name: "Shape_394"
+    op_type: "Shape"
+  }
+  node {
+    input: "631"
+    input: "632"
+    output: "633"
+    name: "Reshape_395"
+    op_type: "Reshape"
+  }
+  node {
+    input: "633"
+    input: "993"
+    output: "635"
+    name: "Mul_396"
+    op_type: "Mul"
+  }
+  node {
+    input: "635"
+    input: "994"
+    output: "637"
+    name: "Add_397"
+    op_type: "Add"
+  }
+  node {
+    input: "553"
+    input: "637"
+    output: "638"
+    name: "Add_398"
+    op_type: "Add"
+  }
+  node {
+    input: "998"
+    output: "648"
+    name: "ConstantOfShape_399"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "999"
+    input: "648"
+    output: "649"
+    name: "Concat_400"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "650"
+    name: "Constant_401"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "649"
+    input: "650"
+    output: "651"
+    name: "Reshape_402"
+    op_type: "Reshape"
+  }
+  node {
+    output: "652"
+    name: "Constant_403"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "653"
+    name: "Constant_404"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "654"
+    name: "Constant_405"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "655"
+    name: "Constant_406"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "651"
+    input: "653"
+    input: "654"
+    input: "652"
+    input: "655"
+    output: "656"
+    name: "Slice_407"
+    op_type: "Slice"
+  }
+  node {
+    input: "656"
+    output: "657"
+    name: "Transpose_408"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "658"
+    name: "Constant_409"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "657"
+    input: "658"
+    output: "659"
+    name: "Reshape_410"
+    op_type: "Reshape"
+  }
+  node {
+    input: "659"
+    output: "660"
+    name: "Cast_411"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "638"
+    input: "660"
+    output: "661"
+    name: "Pad_412"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "661"
+    input: "block_c.5.1.weight"
+    output: "662"
+    name: "Conv_413"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "663"
+    name: "Constant_414"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "662"
+    input: "663"
+    output: "664"
+    name: "Reshape_415"
+    op_type: "Reshape"
+  }
+  node {
+    output: "665"
+    name: "Constant_416"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "666"
+    name: "Constant_417"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "664"
+    input: "665"
+    input: "666"
+    output: "667"
+    name: "InstanceNormalization_418"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "662"
+    output: "668"
+    name: "Shape_419"
+    op_type: "Shape"
+  }
+  node {
+    input: "667"
+    input: "668"
+    output: "669"
+    name: "Reshape_420"
+    op_type: "Reshape"
+  }
+  node {
+    input: "669"
+    input: "1000"
+    output: "671"
+    name: "Mul_421"
+    op_type: "Mul"
+  }
+  node {
+    input: "671"
+    input: "1001"
+    output: "673"
+    name: "Add_422"
+    op_type: "Add"
+  }
+  node {
+    input: "673"
+    output: "674"
+    name: "LeakyRelu_423"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "188"
+    output: "675"
+    name: "Unsqueeze_424"
+    op_type: "Unsqueeze"
+    attribute {
+      name: "axes"
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    input: "191"
+    output: "676"
+    name: "Unsqueeze_425"
+    op_type: "Unsqueeze"
+    attribute {
+      name: "axes"
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    input: "675"
+    input: "676"
+    output: "677"
+    name: "Concat_426"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    input: "674"
+    output: "678"
+    name: "Shape_427"
+    op_type: "Shape"
+  }
+  node {
+    output: "679"
+    name: "Constant_428"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "680"
+    name: "Constant_429"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "681"
+    name: "Constant_430"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "678"
+    input: "680"
+    input: "681"
+    input: "679"
+    output: "682"
+    name: "Slice_431"
+    op_type: "Slice"
+  }
+  node {
+    input: "677"
+    output: "683"
+    name: "Cast_432"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "682"
+    input: "683"
+    output: "684"
+    name: "Concat_433"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "685"
+    name: "Constant_434"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 0
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "686"
+    name: "Constant_435"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 0
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "674"
+    input: "685"
+    input: "686"
+    input: "684"
+    output: "687"
+    name: "Resize_436"
+    op_type: "Resize"
+    attribute {
+      name: "coordinate_transformation_mode"
+      s: "align_corners"
+      type: STRING
+    }
+    attribute {
+      name: "cubic_coeff_a"
+      f: -0.75
+      type: FLOAT
+    }
+    attribute {
+      name: "mode"
+      s: "linear"
+      type: STRING
+    }
+    attribute {
+      name: "nearest_mode"
+      s: "floor"
+      type: STRING
+    }
+  }
+  node {
+    input: "1005"
+    output: "697"
+    name: "ConstantOfShape_437"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "1006"
+    input: "697"
+    output: "698"
+    name: "Concat_438"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "699"
+    name: "Constant_439"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "698"
+    input: "699"
+    output: "700"
+    name: "Reshape_440"
+    op_type: "Reshape"
+  }
+  node {
+    output: "701"
+    name: "Constant_441"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "702"
+    name: "Constant_442"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "703"
+    name: "Constant_443"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "704"
+    name: "Constant_444"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "700"
+    input: "702"
+    input: "703"
+    input: "701"
+    input: "704"
+    output: "705"
+    name: "Slice_445"
+    op_type: "Slice"
+  }
+  node {
+    input: "705"
+    output: "706"
+    name: "Transpose_446"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "707"
+    name: "Constant_447"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "706"
+    input: "707"
+    output: "708"
+    name: "Reshape_448"
+    op_type: "Reshape"
+  }
+  node {
+    input: "708"
+    output: "709"
+    name: "Cast_449"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "687"
+    input: "709"
+    output: "710"
+    name: "Pad_450"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "710"
+    input: "block_d.0.1.weight"
+    output: "711"
+    name: "Conv_451"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "712"
+    name: "Constant_452"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "711"
+    input: "712"
+    output: "713"
+    name: "Reshape_453"
+    op_type: "Reshape"
+  }
+  node {
+    output: "714"
+    name: "Constant_454"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "715"
+    name: "Constant_455"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "713"
+    input: "714"
+    input: "715"
+    output: "716"
+    name: "InstanceNormalization_456"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "711"
+    output: "717"
+    name: "Shape_457"
+    op_type: "Shape"
+  }
+  node {
+    input: "716"
+    input: "717"
+    output: "718"
+    name: "Reshape_458"
+    op_type: "Reshape"
+  }
+  node {
+    input: "718"
+    input: "1007"
+    output: "720"
+    name: "Mul_459"
+    op_type: "Mul"
+  }
+  node {
+    input: "720"
+    input: "1008"
+    output: "722"
+    name: "Add_460"
+    op_type: "Add"
+  }
+  node {
+    input: "722"
+    output: "723"
+    name: "LeakyRelu_461"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "1012"
+    output: "733"
+    name: "ConstantOfShape_462"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "1013"
+    input: "733"
+    output: "734"
+    name: "Concat_463"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "735"
+    name: "Constant_464"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "734"
+    input: "735"
+    output: "736"
+    name: "Reshape_465"
+    op_type: "Reshape"
+  }
+  node {
+    output: "737"
+    name: "Constant_466"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "738"
+    name: "Constant_467"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "739"
+    name: "Constant_468"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "740"
+    name: "Constant_469"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "736"
+    input: "738"
+    input: "739"
+    input: "737"
+    input: "740"
+    output: "741"
+    name: "Slice_470"
+    op_type: "Slice"
+  }
+  node {
+    input: "741"
+    output: "742"
+    name: "Transpose_471"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "743"
+    name: "Constant_472"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "742"
+    input: "743"
+    output: "744"
+    name: "Reshape_473"
+    op_type: "Reshape"
+  }
+  node {
+    input: "744"
+    output: "745"
+    name: "Cast_474"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "723"
+    input: "745"
+    output: "746"
+    name: "Pad_475"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "746"
+    input: "block_d.1.1.weight"
+    output: "747"
+    name: "Conv_476"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "748"
+    name: "Constant_477"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "747"
+    input: "748"
+    output: "749"
+    name: "Reshape_478"
+    op_type: "Reshape"
+  }
+  node {
+    output: "750"
+    name: "Constant_479"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "751"
+    name: "Constant_480"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "749"
+    input: "750"
+    input: "751"
+    output: "752"
+    name: "InstanceNormalization_481"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "747"
+    output: "753"
+    name: "Shape_482"
+    op_type: "Shape"
+  }
+  node {
+    input: "752"
+    input: "753"
+    output: "754"
+    name: "Reshape_483"
+    op_type: "Reshape"
+  }
+  node {
+    input: "754"
+    input: "1014"
+    output: "756"
+    name: "Mul_484"
+    op_type: "Mul"
+  }
+  node {
+    input: "756"
+    input: "1015"
+    output: "758"
+    name: "Add_485"
+    op_type: "Add"
+  }
+  node {
+    input: "758"
+    output: "759"
+    name: "LeakyRelu_486"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "input_image"
+    output: "760"
+    name: "Shape_487"
+    op_type: "Shape"
+  }
+  node {
+    output: "761"
+    name: "Constant_488"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "760"
+    input: "761"
+    output: "762"
+    name: "Gather_489"
+    op_type: "Gather"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    input: "input_image"
+    output: "763"
+    name: "Shape_490"
+    op_type: "Shape"
+  }
+  node {
+    output: "764"
+    name: "Constant_491"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "763"
+    input: "764"
+    output: "765"
+    name: "Gather_492"
+    op_type: "Gather"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    input: "762"
+    output: "766"
+    name: "Unsqueeze_493"
+    op_type: "Unsqueeze"
+    attribute {
+      name: "axes"
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    input: "765"
+    output: "767"
+    name: "Unsqueeze_494"
+    op_type: "Unsqueeze"
+    attribute {
+      name: "axes"
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    input: "766"
+    input: "767"
+    output: "768"
+    name: "Concat_495"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    input: "759"
+    output: "769"
+    name: "Shape_496"
+    op_type: "Shape"
+  }
+  node {
+    output: "770"
+    name: "Constant_497"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "771"
+    name: "Constant_498"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "772"
+    name: "Constant_499"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "769"
+    input: "771"
+    input: "772"
+    input: "770"
+    output: "773"
+    name: "Slice_500"
+    op_type: "Slice"
+  }
+  node {
+    input: "768"
+    output: "774"
+    name: "Cast_501"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "773"
+    input: "774"
+    output: "775"
+    name: "Concat_502"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "776"
+    name: "Constant_503"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 0
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "777"
+    name: "Constant_504"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 0
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "759"
+    input: "776"
+    input: "777"
+    input: "775"
+    output: "778"
+    name: "Resize_505"
+    op_type: "Resize"
+    attribute {
+      name: "coordinate_transformation_mode"
+      s: "align_corners"
+      type: STRING
+    }
+    attribute {
+      name: "cubic_coeff_a"
+      f: -0.75
+      type: FLOAT
+    }
+    attribute {
+      name: "mode"
+      s: "linear"
+      type: STRING
+    }
+    attribute {
+      name: "nearest_mode"
+      s: "floor"
+      type: STRING
+    }
+  }
+  node {
+    input: "1019"
+    output: "788"
+    name: "ConstantOfShape_506"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "1020"
+    input: "788"
+    output: "789"
+    name: "Concat_507"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "790"
+    name: "Constant_508"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "789"
+    input: "790"
+    output: "791"
+    name: "Reshape_509"
+    op_type: "Reshape"
+  }
+  node {
+    output: "792"
+    name: "Constant_510"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "793"
+    name: "Constant_511"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "794"
+    name: "Constant_512"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "795"
+    name: "Constant_513"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "791"
+    input: "793"
+    input: "794"
+    input: "792"
+    input: "795"
+    output: "796"
+    name: "Slice_514"
+    op_type: "Slice"
+  }
+  node {
+    input: "796"
+    output: "797"
+    name: "Transpose_515"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "798"
+    name: "Constant_516"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "797"
+    input: "798"
+    output: "799"
+    name: "Reshape_517"
+    op_type: "Reshape"
+  }
+  node {
+    input: "799"
+    output: "800"
+    name: "Cast_518"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "778"
+    input: "800"
+    output: "801"
+    name: "Pad_519"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "801"
+    input: "block_e.0.1.weight"
+    output: "802"
+    name: "Conv_520"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "803"
+    name: "Constant_521"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "802"
+    input: "803"
+    output: "804"
+    name: "Reshape_522"
+    op_type: "Reshape"
+  }
+  node {
+    output: "805"
+    name: "Constant_523"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "806"
+    name: "Constant_524"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "804"
+    input: "805"
+    input: "806"
+    output: "807"
+    name: "InstanceNormalization_525"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "802"
+    output: "808"
+    name: "Shape_526"
+    op_type: "Shape"
+  }
+  node {
+    input: "807"
+    input: "808"
+    output: "809"
+    name: "Reshape_527"
+    op_type: "Reshape"
+  }
+  node {
+    input: "809"
+    input: "1021"
+    output: "811"
+    name: "Mul_528"
+    op_type: "Mul"
+  }
+  node {
+    input: "811"
+    input: "1022"
+    output: "813"
+    name: "Add_529"
+    op_type: "Add"
+  }
+  node {
+    input: "813"
+    output: "814"
+    name: "LeakyRelu_530"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "1026"
+    output: "824"
+    name: "ConstantOfShape_531"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "1027"
+    input: "824"
+    output: "825"
+    name: "Concat_532"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "826"
+    name: "Constant_533"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "825"
+    input: "826"
+    output: "827"
+    name: "Reshape_534"
+    op_type: "Reshape"
+  }
+  node {
+    output: "828"
+    name: "Constant_535"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "829"
+    name: "Constant_536"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "830"
+    name: "Constant_537"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "831"
+    name: "Constant_538"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "827"
+    input: "829"
+    input: "830"
+    input: "828"
+    input: "831"
+    output: "832"
+    name: "Slice_539"
+    op_type: "Slice"
+  }
+  node {
+    input: "832"
+    output: "833"
+    name: "Transpose_540"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "834"
+    name: "Constant_541"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "833"
+    input: "834"
+    output: "835"
+    name: "Reshape_542"
+    op_type: "Reshape"
+  }
+  node {
+    input: "835"
+    output: "836"
+    name: "Cast_543"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "814"
+    input: "836"
+    output: "837"
+    name: "Pad_544"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "837"
+    input: "block_e.1.1.weight"
+    output: "838"
+    name: "Conv_545"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "839"
+    name: "Constant_546"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "838"
+    input: "839"
+    output: "840"
+    name: "Reshape_547"
+    op_type: "Reshape"
+  }
+  node {
+    output: "841"
+    name: "Constant_548"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "842"
+    name: "Constant_549"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "840"
+    input: "841"
+    input: "842"
+    output: "843"
+    name: "InstanceNormalization_550"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "838"
+    output: "844"
+    name: "Shape_551"
+    op_type: "Shape"
+  }
+  node {
+    input: "843"
+    input: "844"
+    output: "845"
+    name: "Reshape_552"
+    op_type: "Reshape"
+  }
+  node {
+    input: "845"
+    input: "1028"
+    output: "847"
+    name: "Mul_553"
+    op_type: "Mul"
+  }
+  node {
+    input: "847"
+    input: "1029"
+    output: "849"
+    name: "Add_554"
+    op_type: "Add"
+  }
+  node {
+    input: "849"
+    output: "850"
+    name: "LeakyRelu_555"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "1033"
+    output: "860"
+    name: "ConstantOfShape_556"
+    op_type: "ConstantOfShape"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+        raw_data: "\000\000\000\000\000\000\000\000"
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "1034"
+    input: "860"
+    output: "861"
+    name: "Concat_557"
+    op_type: "Concat"
+    attribute {
+      name: "axis"
+      i: 0
+      type: INT
+    }
+  }
+  node {
+    output: "862"
+    name: "Constant_558"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 2
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "861"
+    input: "862"
+    output: "863"
+    name: "Reshape_559"
+    op_type: "Reshape"
+  }
+  node {
+    output: "864"
+    name: "Constant_560"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "865"
+    name: "Constant_561"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "866"
+    name: "Constant_562"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "867"
+    name: "Constant_563"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "863"
+    input: "865"
+    input: "866"
+    input: "864"
+    input: "867"
+    output: "868"
+    name: "Slice_564"
+    op_type: "Slice"
+  }
+  node {
+    input: "868"
+    output: "869"
+    name: "Transpose_565"
+    op_type: "Transpose"
+    attribute {
+      name: "perm"
+      ints: 1
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    output: "870"
+    name: "Constant_566"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "869"
+    input: "870"
+    output: "871"
+    name: "Reshape_567"
+    op_type: "Reshape"
+  }
+  node {
+    input: "871"
+    output: "872"
+    name: "Cast_568"
+    op_type: "Cast"
+    attribute {
+      name: "to"
+      i: 7
+      type: INT
+    }
+  }
+  node {
+    input: "850"
+    input: "872"
+    output: "873"
+    name: "Pad_569"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+  }
+  node {
+    input: "873"
+    input: "block_e.2.1.weight"
+    output: "874"
+    name: "Conv_570"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 7
+      ints: 7
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    output: "875"
+    name: "Constant_571"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 3
+        data_type: 7
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "874"
+    input: "875"
+    output: "876"
+    name: "Reshape_572"
+    op_type: "Reshape"
+  }
+  node {
+    output: "877"
+    name: "Constant_573"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    output: "878"
+    name: "Constant_574"
+    op_type: "Constant"
+    attribute {
+      name: "value"
+      t {
+        dims: 1
+        data_type: 1
+      }
+      type: TENSOR
+    }
+  }
+  node {
+    input: "876"
+    input: "877"
+    input: "878"
+    output: "879"
+    name: "InstanceNormalization_575"
+    op_type: "InstanceNormalization"
+    attribute {
+      name: "epsilon"
+      f: 9.999999747378752e-06
+      type: FLOAT
+    }
+  }
+  node {
+    input: "874"
+    output: "880"
+    name: "Shape_576"
+    op_type: "Shape"
+  }
+  node {
+    input: "879"
+    input: "880"
+    output: "881"
+    name: "Reshape_577"
+    op_type: "Reshape"
+  }
+  node {
+    input: "881"
+    input: "1035"
+    output: "883"
+    name: "Mul_578"
+    op_type: "Mul"
+  }
+  node {
+    input: "883"
+    input: "1036"
+    output: "885"
+    name: "Add_579"
+    op_type: "Add"
+  }
+  node {
+    input: "885"
+    output: "886"
+    name: "LeakyRelu_580"
+    op_type: "LeakyRelu"
+    attribute {
+      name: "alpha"
+      f: 0.20000000298023224
+      type: FLOAT
+    }
+  }
+  node {
+    input: "886"
+    input: "out_layer.0.weight"
+    output: "887"
+    name: "Conv_581"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "887"
+    output: "output_image"
+    name: "Tanh_582"
+    op_type: "Tanh"
+  }
+  initializer {
+      dims: 32
+      dims: 3
+      dims: 7
+      dims: 7
+      data_type: 1
+      name: "block_a.0.1.weight"
+  }
+  initializer {
+      dims: 64
+      dims: 32
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_a.1.1.weight"
+  }
+  initializer {
+      dims: 64
+      dims: 64
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_a.2.1.weight"
+  }
+  initializer {
+      dims: 128
+      dims: 64
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_b.0.1.weight"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_b.1.1.weight"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_c.0.1.weight"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "block_c.1.layers.0.1.weight"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_c.1.layers.1.1.weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "block_c.1.layers.1.1.bias"
+  }
+  initializer {
+      dims: 256
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "block_c.1.layers.2.weight"
+  }
+  initializer {
+      dims: 512
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "block_c.2.layers.0.1.weight"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_c.2.layers.1.1.weight"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "block_c.2.layers.1.1.bias"
+  }
+  initializer {
+      dims: 256
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "block_c.2.layers.2.weight"
+  }
+  initializer {
+      dims: 512
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "block_c.3.layers.0.1.weight"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_c.3.layers.1.1.weight"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "block_c.3.layers.1.1.bias"
+  }
+  initializer {
+      dims: 256
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "block_c.3.layers.2.weight"
+  }
+  initializer {
+      dims: 512
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "block_c.4.layers.0.1.weight"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_c.4.layers.1.1.weight"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "block_c.4.layers.1.1.bias"
+  }
+  initializer {
+      dims: 256
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "block_c.4.layers.2.weight"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_c.5.1.weight"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_d.0.1.weight"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_d.1.1.weight"
+  }
+  initializer {
+      dims: 64
+      dims: 128
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_e.0.1.weight"
+  }
+  initializer {
+      dims: 64
+      dims: 64
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "block_e.1.1.weight"
+  }
+  initializer {
+      dims: 32
+      dims: 64
+      dims: 7
+      dims: 7
+      data_type: 1
+      name: "block_e.2.1.weight"
+  }
+  initializer {
+      dims: 3
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "out_layer.0.weight"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "892"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "893"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "894"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "895"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "899"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "900"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "901"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "902"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "906"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "907"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "908"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "909"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "913"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "914"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "915"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "916"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "920"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "921"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "922"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "923"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "927"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "928"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "929"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "930"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "934"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "935"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "936"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "937"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "941"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "942"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "943"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "944"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "945"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "946"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "950"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "951"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "952"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "953"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "957"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "958"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "959"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "960"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "961"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "962"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "966"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "967"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "968"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "969"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "973"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "974"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "975"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "976"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "977"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "978"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "982"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "983"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "984"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "985"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "989"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "990"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "991"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "992"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "993"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "994"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "998"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "999"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1000"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1001"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "1005"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "1006"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1007"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1008"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "1012"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "1013"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1014"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1015"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "1019"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "1020"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1021"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1022"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "1026"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "1027"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1028"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1029"
+  }
+  initializer {
+      dims: 1
+      data_type: 7
+      name: "1033"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "1034"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1035"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "1036"
+  }
+  input {
+    name: "input_image"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_param: "n"
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_param: "h"
+          }
+          dim {
+            dim_param: "w"
+          }
+        }
+      }
+    }
+  }
+  output {
+    name: "output_image"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_param: "n"
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_param: "h"
+          }
+          dim {
+            dim_param: "w"
+          }
+        }
+      }
+    }
+  }
+}
+opset_import {
+  version: 11
+}
