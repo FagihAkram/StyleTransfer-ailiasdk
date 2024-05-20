@@ -18,21 +18,34 @@ export default function Home() {
   const [outputImage, setOutputImage] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      setSelectedFile(event.target.files[0]);
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
       const reader = new FileReader();
+
       reader.onload = (e) => {
-        setImagePreviewUrl(e.target?.result as string);
+        if (e.target?.result) {
+          setSelectedFile(file);
+          setImagePreviewUrl(e.target.result as string);
+        }
       };
-      reader.readAsDataURL(event.target.files[0]);
+
+      reader.onerror = () => {
+        // Handle file read error (optional)
+        console.error("File reading has failed");
+      };
+
+      reader.onabort = () => {
+        // Handle file read abort (optional)
+        console.warn("File reading was aborted");
+      };
+
+      reader.readAsDataURL(file);
     }
   };
 
   const handleModelChange = (value: string) => {
     setModelName(value);
   };
-
-  console.log(modelName);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
