@@ -23,8 +23,8 @@ models/
 *.pkl
 
 # Models
-*.onxx
-*.onxx.prototxt
+*.onnx
+*.onnx.prototxt
 
 # IDE files
 .vscode/
