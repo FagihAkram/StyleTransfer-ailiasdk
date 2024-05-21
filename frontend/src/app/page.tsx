@@ -142,7 +142,7 @@ export default function Home() {
         <div className="flex space-x-4 p-4">
           <div
             id="imagePreview"
-            className="min-w-96 max-w-96 rounded-md border-2 border-dashed p-4 text-center font-medium text-slate-400"
+            className="min-w-[36rem] max-w-[32rem] rounded-md border-2 border-dashed p-4 text-center font-medium text-slate-400"
           >
             <h2 className="mb-2">Input Image</h2>
             {imagePreviewUrl && (
@@ -156,7 +156,7 @@ export default function Home() {
 
           <div
             id="imageOutput"
-            className="min-w-96 max-w-96 rounded-md border-2 border-dashed p-4 text-center font-medium text-slate-400"
+            className="min-w-[36rem] max-w-[32rem] rounded-md border-2 border-dashed p-4 text-center font-medium text-slate-400"
           >
             <h2 className="mb-2">Stylized Image</h2>
             {loading && (
