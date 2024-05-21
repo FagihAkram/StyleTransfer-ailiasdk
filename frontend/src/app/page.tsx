@@ -133,7 +133,7 @@ export default function Home() {
             required
           />
           <Button type="submit" disabled={loading}>
-            {loading ? "Loading..." : "Stylize"}
+            {loading ? "Stylizing..." : "Stylize"}
           </Button>
         </div>
       </form>
