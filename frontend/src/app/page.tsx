@@ -49,6 +49,18 @@ export default function Home() {
     setError(undefined); // Clear any existing error before starting the submission
   };
 
+  const handleDownload = () => {
+    if (outputImage) {
+      // Create a temporary anchor element
+      const downloadLink = document.createElement("a");
+      downloadLink.href = outputImage;
+      downloadLink.download = "stylized_image.png"; // Set the desired file name
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink); // Clean up
+    }
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -126,40 +138,51 @@ export default function Home() {
         </div>
       </form>
       {error && <FormError message={error} />}
-      <div className="flex space-x-4 p-4">
-        <div
-          id="imagePreview"
-          className="min-w-96 max-w-96 rounded-md border-2 border-dashed p-4 text-center font-medium text-slate-400"
-        >
-          <h2 className="mb-2">Input Image</h2>
-          {imagePreviewUrl && (
-            <img
-              className="mx-auto max-h-full max-w-full rounded-md border object-contain"
-              src={imagePreviewUrl}
-              alt="Preview"
-            />
-          )}
-        </div>
+      <div>
+        <div className="flex space-x-4 p-4">
+          <div
+            id="imagePreview"
+            className="min-w-96 max-w-96 rounded-md border-2 border-dashed p-4 text-center font-medium text-slate-400"
+          >
+            <h2 className="mb-2">Input Image</h2>
+            {imagePreviewUrl && (
+              <img
+                className="mx-auto max-h-full max-w-full rounded-md border object-contain"
+                src={imagePreviewUrl}
+                alt="Preview"
+              />
+            )}
+          </div>
 
-        <div
-          id="imageOutput"
-          className="min-w-96 max-w-96 rounded-md border-2 border-dashed p-4 text-center font-medium text-slate-400"
-        >
-          <h2 className="mb-2">Stylized Image</h2>
-          {loading && (
-            <div className="flex h-full items-center justify-center">
-              <ClipLoader color={"#94A3B8"} size={100} />{" "}
-              {/* Assuming you have a Spinner component */}
-            </div>
-          )}
-          {outputImage && !loading && (
-            <img
-              className="mx-auto max-h-full max-w-full rounded-md border object-contain"
-              src={outputImage}
-              alt="Stylized Output"
-            />
-          )}
+          <div
+            id="imageOutput"
+            className="min-w-96 max-w-96 rounded-md border-2 border-dashed p-4 text-center font-medium text-slate-400"
+          >
+            <h2 className="mb-2">Stylized Image</h2>
+            {loading && (
+              <div className="flex h-full items-center justify-center pb-10">
+                <ClipLoader color={"#94A3B8"} size={50} />{" "}
+                {/* Assuming you have a Spinner component */}
+              </div>
+            )}
+            {outputImage && !loading && (
+              <>
+                <img
+                  className="mx-auto max-h-full max-w-full rounded-md border object-contain"
+                  src={outputImage}
+                  alt="Stylized Output"
+                />
+              </>
+            )}
+          </div>
         </div>
+        {outputImage && !loading && (
+          <div className="pr-4 flex justify-end">
+            <Button className="mt-4" onClick={handleDownload}>
+              Download
+            </Button>{" "}
+          </div>
+        )}
       </div>
     </main>
   );
